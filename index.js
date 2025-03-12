@@ -15,8 +15,8 @@ app.use(cors({
 app.get("/", (req, res) => {
   res.send("Server running successfully!!!");
 });
-app.use('/user',require('./ModelsAndControllers/userController'));
-app.use('/post',require('./ModelsAndControllers/postController'));
+app.use('/api/user',require('./ModelsAndControllers/userController'));
+app.use('/api/post',require('./ModelsAndControllers/postController'));
 
 app.listen(PORT, HOSTNAME, () => {
   console.log(`Server Running Successfully at ${PORT}`);
