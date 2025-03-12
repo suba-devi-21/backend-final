@@ -8,16 +8,12 @@ const HOSTNAME = process.env.HOSTNAME;
 const app = express();
 connectMongoDB();
 app.use(bodyParser.json());
-app.use(cors({ 
-  origin: 'https://aditith.netlify.app', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], 
-  allowedHeaders: ['Content-Type', 'Authorization'] 
-}));
+
 app.get("/", (req, res) => {
   res.send("Server running successfully!!!");
 });
-app.use('/api/user',require('./ModelsAndControllers/userController'));
-app.use('/api/post',require('./ModelsAndControllers/postController'));
+app.use('/user',require('./ModelsAndControllers/userController'));
+app.use('/post',require('./ModelsAndControllers/postController'));
 
 app.listen(PORT, HOSTNAME, () => {
   console.log(`Server Running Successfully at ${PORT}`);
