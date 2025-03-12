@@ -8,23 +8,8 @@ const HOSTNAME = process.env.HOSTNAME;
 const app = express();
 connectMongoDB();
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      const allowedOrigins = ["https://aditith.netlify.app", "http://localhost:5173"];
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
 
-app.options("*", cors());
+app.use(cors({origin:"https://aditith.netlify.app",credentials: true}))
 
 
 
