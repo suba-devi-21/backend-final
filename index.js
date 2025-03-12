@@ -9,7 +9,7 @@ const app = express();
 connectMongoDB();
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'https://ahif.netlify.app', 
+    origin: 'https://aditith.netlify.app', 
     credentials: true
 }))
 app.get("/", (req, res) => {
