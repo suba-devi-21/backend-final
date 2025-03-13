@@ -7,12 +7,11 @@ const postRouter = require("./ModelsAndControllers/postController");
 const userRouter = require("./ModelsAndControllers/userController");
 
 const PORT = process.env.PORT;
-const HOSTNAME = process.env.HOSTNAME;
 const app = express();
 connectMongoDB();
 app.use(bodyParser.json());
 
-app.use(cors({origin:"https://frontend-final-lilac-iota.vercel.app/",credentials: true}))
+app.use(cors({origin:"*",credentials: true}))
 
 //App Routes
 app.use("/user", userRouter);
@@ -23,6 +22,6 @@ app.get("/", (req, res) => {
 });
 
 
-app.listen(PORT, HOSTNAME, () => {
+app.listen(PORT,  () => {
   console.log(`Server Running Successfully at ${PORT}`);
 });
