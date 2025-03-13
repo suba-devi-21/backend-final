@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const { connectMongoDB } = require("./Database/db");
 const postRouter = require("./ModelsAndControllers/postController");
 const userRouter = require("./ModelsAndControllers/userController");
+
+//PORT NO
 const PORT = process.env.PORT;
 
 const app = express();
@@ -12,10 +14,10 @@ connectMongoDB();
 
 app.use(bodyParser.json());
 
-app.use(cors({ origin:"", credentials: true }));
+app.use(cors({ origin:"https://suba-server.onrender.com", credentials: true }));
 
 app.get("/", (req, res) => {
-  res.send("Server running successfully!!!");
+  res.send("Server running successfully!!!"):
 });
 //App Routes
 app.use("/user", userRouter);
